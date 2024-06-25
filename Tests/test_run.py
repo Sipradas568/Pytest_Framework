@@ -1,5 +1,6 @@
 import pytest
 from selenium.webdriver.common.by import By
+from selenium import webdriver
 import time
 from Config.config import BaseURL
 from Pages.Login_page import LoginPage
@@ -12,8 +13,8 @@ class Testcase(BaseURL):
         lp = LoginPage(setup)
         lp.ValidLogin("nidhi.chandra@gramener.com","0000")
         time.sleep(10)
-        res = self.driver.fi
-        print(res)
-        Expected_Title = "TranslateLaw"
-        assert res == Expected_Title
-        assert True(res.__contains__("Project View"))
+        res = self.driver.find_element(By.CSS_SELECTOR,"ol[class = 'breadcrumb ml-2 bg-color-white fs-19 mb-0']")
+        print(res.text)
+        #Expected_Title = "TranslateLaw"
+        #assert res == Expected_Title
+        assert "Project View" in res.text
