@@ -10,7 +10,7 @@ class LoginPage(BaseURL):
         self.driver = driver
         self.loc = LoginLocators()
 
-    def ValidLogin(self,un,pwd):
+    def Login(self,un,pwd):
         self.un=un
         self.pwd=pwd
     
